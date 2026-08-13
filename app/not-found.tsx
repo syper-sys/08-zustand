@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         height: 630,
         alt: "404 - Page not found | NoteHub"
       },
-    url: `http://notehub.com`
+    url: `https://08-zustand-blush-theta.vercel.app/`
   }
 };
 

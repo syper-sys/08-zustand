@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         height: 630,
         alt: note.content.slice(0, 30),
       },
-      url: `http://localhost:3000/notes/${note.id}`
+      url: `https://08-zustand-blush-theta.vercel.app/notes/${note.id}`
     }
   };
 };

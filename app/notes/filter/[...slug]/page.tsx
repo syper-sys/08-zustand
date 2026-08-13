@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         height: 630,
         alt: `Search with filter ${tag}`
       },
-      url: `http://localhost:3000/notes/filter/${rawTag}`
+      url: `https://08-zustand-blush-theta.vercel.app/notes/filter/${rawTag}`
     }
   }
 }

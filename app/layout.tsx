@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         height: 630,
         alt: "A simple and efficient app for creating and organizing your notes"
       },
-    url: `http://notehub.com`
+    url: `https://08-zustand-blush-theta.vercel.app/`
   }
 };
 

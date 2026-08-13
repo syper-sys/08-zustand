@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         height: 630,
         alt: `Make your thoughts and wishes into a note`
       },
-      url: `http://localhost:3000/notess`
+      url: `08-zustand-blush-theta.vercel.app`
     }
   }
 }
