@@ -11,10 +11,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const note = await fetchNoteById(id)
   return {
-    title: `Note - ${note.title}`,
+    title: note.title,
     description: note.content.slice(0, 30),
-  }
-}
+    openGraph: {
+      title: note.title,
+      description: note.content.slice(0, 30),
+      images: {
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        width: 1200,
+        height: 630,
+        alt: note.content.slice(0, 30),
+      },
+      url: `http://localhost:3000/notes/${note.id}`
+    }
+  };
+};
 
 const NoteDetails = async ({ params }: Props) => {
   const { id } = await params;

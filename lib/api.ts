@@ -28,7 +28,6 @@ export const fetchNotes = async (params: FetchNotesParams = {}): Promise<FetchNo
       ...(tag && { tag }),
     },
   });
-  console.log(data)
   return data;
 };
 

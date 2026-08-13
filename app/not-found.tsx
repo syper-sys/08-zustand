@@ -4,6 +4,17 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: '404 - Page not found | NoteHub',
   description: 'This page does not exist or has been removed',
+  openGraph: {
+    title: '404 - Page not found | NoteHub',
+    description: 'This page does not exist or has been removed',
+    images: {
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        width: 1200,
+        height: 630,
+        alt: "404 - Page not found | NoteHub"
+      },
+    url: `http://notehub.com`
+  }
 };
 
 function NotFound() {
