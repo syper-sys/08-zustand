@@ -1,10 +1,10 @@
-import { CreateNewNote, NoteTag , Note } from '@/types/note';
+import { CreateNewNote } from '@/types/note';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface NoteDraftStore {
   draft: CreateNewNote;
-  setDraft: (note: Note) => void;
+  setDraft: (note: CreateNewNote) => void;
   clearDraft: () => void;
 }
 
