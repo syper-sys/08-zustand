@@ -19,9 +19,9 @@ const geistMono = Geist_Mono({
 const roboto = Roboto({
   variable: '--font-roboto',
   subsets: ['latin'],
-  weight: ["300", "400", "500", "700"],
+  weight: ['300', '400', '500', '700'],
   display: 'swap',
-})
+});
 
 export const metadata: Metadata = {
   title: 'NoteHub',
@@ -29,14 +29,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NoteHub',
     description: 'A simple and efficient app for creating and organizing your notes',
-    images: {
-        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+    images: [
+      {
+        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
         width: 1200,
         height: 630,
-        alt: "A simple and efficient app for creating and organizing your notes"
+        alt: 'A simple and efficient app for creating and organizing your notes',
       },
-    url: `https://08-zustand-blush-theta.vercel.app/`
-  }
+    ],
+    url: `https://08-zustand-blush-theta.vercel.app/`,
+  },
 };
 
 export default function RootLayout({

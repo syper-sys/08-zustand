@@ -18,15 +18,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Notes: ${tag}`,
       description: `Search with filter ${tag}`,
-      images: {
-        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
-        width: 1200,
-        height: 630,
-        alt: `Search with filter ${tag}`
-      },
-      url: `https://08-zustand-blush-theta.vercel.app/notes/filter/${rawTag}`
-    }
-  }
+      images: [
+        {
+          url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+          width: 1200,
+          height: 630,
+          alt: `Search with filter ${tag}`,
+        },
+      ],
+      url: `https://08-zustand-blush-theta.vercel.app/notes/filter/${rawTag}`,
+    },
+  };
 }
 
 const NotesByCategory = async ({ params }: Props) => {
