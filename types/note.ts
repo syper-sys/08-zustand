@@ -11,7 +11,7 @@ export interface Note {
   tag: NoteTag;
 }
 
-export interface CreateNote {
+export interface CreateNewNote {
   title: string;
   content: string;
   tag: NoteTag;

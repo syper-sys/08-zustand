@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { Note, CreateNote } from '@/types/note';
+import type { Note, CreateNewNote } from '@/types/note';
 
 export interface FetchNotesParams {
   page?: number;
@@ -36,7 +36,7 @@ export const fetchNoteById = async (noteId: Note['id']): Promise<Note> => {
   return data;
 };
 
-export const createNote = async (payload: CreateNote): Promise<Note> => {
+export const createNewNote = async (payload: CreateNewNote): Promise<Note> => {
   const { data } = await axios.post<Note>('/notes', payload);
   return data;
 };

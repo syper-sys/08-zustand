@@ -5,9 +5,6 @@ import { ALL_TAGS } from "@/types/note"
 function SidebarNotes() {
   return (
     <ul className={css.menuList}>
-      <Link href="/app/notes/action/create">
-        Create note
-      </Link>
       <li className={css.menuItem}>
         <Link href="/notes/filter/all" className={css.menuLink}>
           All notes

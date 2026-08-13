@@ -1,70 +1,39 @@
-import css from '@/components/NoteForm/NoteForm.module.css';
-import { type NoteTag, type CreateNote, ALL_TAGS } from '@/types/note';
-import { useId } from 'react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createNote } from '@/lib/api';
+import type { Metadata } from 'next';
+import css from "@/app/notes/action/create/page.module.css"
+import NoteForm from '@/components/NoteForm/NoteForm';
 
-interface NoteFormProps {
-  onClose: () => void;
+
+type Props = {
+  params: Promise<{ slug: string[] }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: `Create New Note | NoteHub`,
+    description: `Make your thoughts and wishes into a note`,
+    openGraph: {
+      title: `Create New Note | NoteHub`,
+      description: `Make your thoughts and wishes into a note`,
+      images: {
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        width: 1200,
+        height: 630,
+        alt: `Make your thoughts and wishes into a note`
+      },
+      url: `http://localhost:3000/notess`
+    }
+  }
 }
 
-function NoteForm({ onClose }: NoteFormProps) {
-  const fieldId = useId();
-  const queryClient = useQueryClient();
-
-  const createNoteM = useMutation({
-    mutationFn: createNote,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['notes'] });
-      onClose();
-    },
-    onError: error => {
-      console.error(error);
-    },
-  });
-
-  const handleSubmit = (values: CreateNote) => {
-    createNoteM.mutate(values);
-  };
-
+function CreateNote() {
   return (
-      <form className={css.form}>
-        <div className={css.formGroup}>
-          <label htmlFor={`${fieldId}-title`}>Title</label>
-          <input id={`${fieldId}-title`} name="title" className={css.input} />
-        </div>
-
-        <div className={css.formGroup}>
-          <label htmlFor={`${fieldId}-content`}>Content</label>
-          <textarea
-            id={`${fieldId}-content`}
-            name="content"
-            rows={8}
-            className={css.textarea}
-          />
-        </div>
-
-        <div className={css.formGroup}>
-          <label htmlFor={`${fieldId}-tag`}>Tag</label>
-          <select id={`${fieldId}-tag`} name="tag" className={css.select}>
-            <option value="Todo">Todo</option>
-            <option value="Work">Work</option>
-            <option value="Personal">Personal</option>
-            <option value="Meeting">Meeting</option>
-            <option value="Shopping">Shopping</option>
-          </select>
-        </div>
-
-        <div className={css.actions}>
-          <button onClick={onClose} type="button" className={css.cancelButton}>
-            Cancel
-          </button>
-          <button type="submit" className={css.submitButton} disabled={false}>
-            Create note
-          </button>
-        </div>
-      </form>
+    <main className={css.main}>
+      <div className={css.container}>
+        <h1 className={css.title}>Create note</h1>
+        <NoteForm />
+      </div>
+    </main>
   );
 }
 
-export default NoteForm;
+export default CreateNote;
